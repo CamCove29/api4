@@ -10,6 +10,7 @@ USUARIOS_API_URL = "http://proyecto-cloud-1714451405.us-east-1.elb.amazonaws.com
 EDITORIALES_API_URL = "http://proyecto-cloud-1714451405.us-east-1.elb.amazonaws.com:8083/docs"
 
 
+
 # Orquestador - Obtener información combinada de un libro, autor y editorial
 @app.get("/orquestador/libro_autor_editorial/{id_libro}")
 async def get_libro_autor_editorial(id_libro: int):
@@ -95,3 +96,8 @@ async def eliminar_libro_autor_editorial(id_libro: int):
 
         except httpx.HTTPStatusError as e:
             raise HTTPException(status_code=e.response.status_code, detail=f"Error en la API: {e}")
+
+# Ruta base para verificar el estado de la API
+@app.get("/")
+def base():
+    return {"Estado": "Activo"}
