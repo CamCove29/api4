@@ -10,4 +10,4 @@ COPY . .
 
 EXPOSE 8085
 
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8085"]
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8085"]
